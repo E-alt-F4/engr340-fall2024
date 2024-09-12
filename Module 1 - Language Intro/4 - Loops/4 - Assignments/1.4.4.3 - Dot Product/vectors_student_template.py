@@ -26,8 +26,13 @@ Step 2: Iterate through the vector(s) and calculate the dot product
 
 # store your result here. Do not change the name
 dot_product = 0
-
+penguiz = []
 ### Your code here
+for elements in range(len(vector_a)):
+    penguiz.append(vector_a[elements] * vector_b[elements])
+dot_product= sum(penguiz)
+print(dot_product)
+
 
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution

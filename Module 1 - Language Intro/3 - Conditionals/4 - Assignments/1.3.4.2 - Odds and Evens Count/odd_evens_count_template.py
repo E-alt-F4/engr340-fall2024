@@ -1,5 +1,9 @@
 # bring in randomness cause we need it in our lives
 import random
+from itertools import count
+
+from numpy.ma.core import append
+
 
 ### Begin Dr. Forsyth Code. Do Not Modify ###
 
@@ -29,3 +33,13 @@ num_evens = 0
 num_odds = 0
 
 ### YOUR CODE BEGINS HERE ###
+for things in nums:
+    if things % 2 == 1:  #value odd
+        num_odds +=1
+    else:
+        num_evens +=1
+print(num_odds)
+print(num_evens)
+
+
+

@@ -9,7 +9,9 @@ Note: this problem does not require the "compounding interest" formula from the 
 """
 
 ### Your code here ###
+Total_InState = 30792 #dollar amount for Instate tuition
+Total_OutState = 47882 #dollar amount for Outstate tuition
+Investment = 5/100 #percent of return on investment
+in_state_gift = Total_InState/Investment
+out_state_gift = Total_OutState/Investment
 
-in_state_gift = 0
-
-out_state_gift = 0
