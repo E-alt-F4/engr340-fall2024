@@ -10,6 +10,11 @@ def generate_random_int_list(list_length, upper_bound):
     # return the generated list
     return randoms
 
+max_length = 10
+maximum_value = 100
+fixed_length = int(random.uniform(2, max_length))
+vector_a = generate_random_int_list(fixed_length, maximum_value)
+vector_b = generate_random_int_list(fixed_length, maximum_value)
 def dot_product(a,b):
     """
     A custom function to calculate the dot product of two lists
@@ -19,10 +24,16 @@ def dot_product(a,b):
     """
 
     ### YOUR CODE HERE ###
-
+    dot_product = 0
+    penguiz = []
+    ### Your code here
+    for elements in range(len(vector_a)):
+        penguiz.append(vector_a[elements] * vector_b[elements])
+    dot_product = sum(penguiz)
+    print(dot_product)
 
     ### CHANGE THIS RETURN VALUE. IT IS HERE SO THE CODE DOES NOT ERROR
-    return None
+    return dot_product
 
 """
 Step 1: Generate two "vectors" of equal length but full of random values
