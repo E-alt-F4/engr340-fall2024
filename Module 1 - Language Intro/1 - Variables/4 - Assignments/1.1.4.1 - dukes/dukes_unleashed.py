@@ -15,3 +15,5 @@ Investment = 5/100 #percent of return on investment
 in_state_gift = Total_InState/Investment
 out_state_gift = Total_OutState/Investment
 
+donation = in_state_gift + out_state_gift
+print(donation)
