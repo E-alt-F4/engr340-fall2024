@@ -33,9 +33,16 @@ def one_sample_tests(_files: list, _mean: float, _alpha: float, _less_than: bool
 
     # list of files that are out of spec
     reject_null_hypothesis = []
-
     # YOUR CODE HERE #
+    for file in _files:
+        array = np.genfromtxt(file, delimiter=',')
+        (stat, p_value) = ttest_1samp(array, popmean=_mean, alternative='less')
 
+        if p_value < _alpha:
+            print('Reject H0: sample means and population means are not equal!')
+            reject_null_hypothesis(file)
+        else:
+                print('Accept H0: sample means and population means are equivalent!')
     # return samples that were rejected
     return reject_null_hypothesis
 
@@ -74,10 +81,10 @@ if __name__ == "__main__":
     one_sided_test_files = ['lesser1.txt', 'lesser2.txt', 'greater1.txt', 'greater2.txt']
 
     # perform all left-sided tests (rejected should be less than target as means not equal)
-    left_sided_tests = one_sided_tests(_files=one_sided_test_files, _mean=target_mu, _alpha=0.5, _less_than=True)
+    left_sided_tests = one_sample_tests(_files=one_sided_test_files, _mean=target_mu, _alpha=0.5, _less_than=True)
     print('Conducting left sided tests. All samples less that mean should be returned. Samples: ', left_sided_tests)
 
     # perform all left-sided tests (rejected should be greater than target as means not equal)
-    right_sided_tests = one_sided_tests(_files=one_sided_test_files, _mean=target_mu, _alpha=0.5, _less_than=False)
+    right_sided_tests = one_sample_tests(_files=one_sided_test_files, _mean=target_mu, _alpha=0.5, _less_than=False)
     print('Conducting right sided tests. All samples greater that mean should be returned. Samples: ', right_sided_tests)
 
