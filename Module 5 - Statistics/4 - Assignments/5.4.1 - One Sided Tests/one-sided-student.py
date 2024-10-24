@@ -36,17 +36,21 @@ def one_sample_tests(_files: list, _mean: float, _alpha: float, _less_than: bool
     # YOUR CODE HERE #
     for file in _files:
         array = np.genfromtxt(file, delimiter=',')
-        (stat, p_value) = ttest_1samp(array, popmean=_mean, alternative='less')
+        if _less_than:
+            (stat, p_value) = ttest_1samp(array, popmean=_mean, alternative='less')
 
-        if p_value < _alpha:
-            print('Reject H0: sample means and population means are not equal!')
-            reject_null_hypothesis(file)
-        else:
-                print('Accept H0: sample means and population means are equivalent!')
+            if p_value < _alpha:
+                print('Reject H0: sample means and population means are not equal!')
+                reject_null_hypothesis.append(file)
+            else:
+                    print('Accept H0: sample means and population means are equivalent!')
     # return samples that were rejected
+        else:
+            (stat, p_value) = ttest_1samp(array, popmean=_mean, alternative='greater')
+            if p_value < _alpha:
+                reject_null_hypothesis.append(file)
+
     return reject_null_hypothesis
-
-
 if __name__ == "__main__":
     import matplotlib.pyplot as plot
 
