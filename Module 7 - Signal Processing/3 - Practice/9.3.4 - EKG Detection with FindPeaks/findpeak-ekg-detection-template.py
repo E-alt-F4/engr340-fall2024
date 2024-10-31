@@ -29,9 +29,8 @@ signal = signal[0:3300]
 """
 Step 3: Use Find Peaks
 """
-
 # you may want to explore various parameters for the function that will help you!
-peaks, _ = find_peaks(signal)
+peaks, _ = find_peaks(signal,height=1,distance=100)
 print("Within the sample we found ", len(peaks), " heart beats with find_peaks!")
 
 """
@@ -41,6 +40,5 @@ Step 4: Plot the results
 # plot all the find_peaks results on the same graph
 plt.plot(signal)
 plt.title('Filtered ECG Signal with Beat Annotations')
-
 plt.plot(peaks, signal[peaks], 'X')
 plt.show()
